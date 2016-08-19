@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/footer-reveal.min.js"></script>
+
+	<head>
+		<div class="slides">
+			UM ELEMENTO
+
+		</div>
+		<meta charset="utf-8">
+
+		<title>Sistemas Operacionais</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			function init()
+			{
+				var canvas = document.getElementById("canvas");
+				if(canvas.getContext){
+					var ctx = canvas.getContext("2d");
+					// Draw triangle
+					ctx.fillStyle="#A2322E";
+					ctx.beginPath();
+					// Draw a triangle location for each corner from x:y 100,110 -> 200,10 -> 300,110 (it will return to first point)
+					ctx.moveTo(275,110);
+					ctx.lineTo(375,10);
+					ctx.lineTo(475,110);
+					ctx.closePath();
+					ctx.fill();
+				}
+			}
+			onload=init;
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas Operacionais</h1>
+					<h3>Linux: introdução à linha de comando</h3>
+					<p>
+						<small>Professor: Juliano Fischer Naves / <a href="mailto:juliano.naves@ifro.edu.br">email</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Bash</h2>
+					<ul>
+						<li>shell Bourne Again</li>
+						<li class="fragment">Um dos vários shells disponíveis para Linux</li>
+						<li class="fragment">Aceita e executa comandos</li>
+						<li class="fragment">Suporta a criação de comandos complexos a partir de comandos menores: scripts</li>
+						<li class="fragment">Comandos integrdos (break, cd, exec) e externos</li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<h2>Fluxos de E/S</h2>
+					<ul>
+						<li class="fragment"><strong>stdin</strong>: fluxo de entrada padrão</li>
+						<ul>
+							<li class="fragment">Fornece entrada para os comandos</li>
+						</ul>
+						<li class="fragment"><strong>stdout</strong></li>
+						<ul>
+							<li class="fragment">Mostra a saída dos comandos</li>
+						</ul>
+						<li class="fragment"><strong>stderr</strong></li>
+						<ul>
+							<li class="fragment">Mostra a saída de erros do comando</li>
+						</ul>
+					</ul>
+				</section>					
+
+				<section>
+					<h2>Usuário vs. Superusuário</h2>
+					<ul>
+						<li>Superusuário: <em>root</em></li>
+						<ul>
+							<li class="fragment" style="color:red">Use com cautela</li>
+						</ul>
+					</ul>
+					<figure><img src="imgs/user-and-root.png" alt="Usuário e superusuário" width=100%></figure>
+					
+				</section>
+
+				<section>
+					<h2>Hello World!</h2>
+					<section>
+					    <pre><code data-trim data-noescape class="bash">
+user@hostname:$ echo Hello World!
+Hello World!
+user@hostname:$ echo Palavra
+Palavra
+user@hostname:$ echo Onde    estão   os    meus espaços?
+Onde estão os meus espaços?
+user@hostname:$ echo "Aqui     estão   os    meus espaços!"
+Aqui     estão   os    meus espaços!
+					    </code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Sequências de Comandos</h2>
+					<ul>
+						<li>Operador <b style="color:blue">&&</b>: executa o segundo comando somente se o primeiro retornar <b>código de saída igual 0</b> (executado com sucesso)</li>
+						<li>Operador <b style="color:blue">||</b>: executa o segundo comando somente se o primeiro retornar <b>código de saída diferente de 0</b></li>
+						<li><b style="color:blue">;</b>: separador de comandos</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sequências de Comandos</h2>
+					    <pre><code data-trim data-noescape class="bash">
+user@hostname:$ echo Comando 1; echo Comando 2; echo Comando3
+Comando 1
+Comando 2
+Comando 3
+user@hostname:$ echo Comando 1 && echo Comando 2
+Comando 1
+Comando 2
+user@hostname:$ echo Comando 1 || echo Comando 2
+Comando 1
+user@hostname:$ <b style="color:red">ehco</b> Comando 1 || echo Comando 2
+No command 'ehco' found, did you mean:
+ Command 'echo' from package 'coreutils' (main)
+ehco: command not found
+Comando 2
+					    </code></pre>
+				</section>
+
+				<section>
+					<h2>Primeiros Comandos</h2>
+					<table>
+						<col style="width:40%">
+					<tr>
+						<th>Comando</th> <th>Descrição</th>
+					</tr>
+
+					<tr>
+						<td>ls</td> <td>Mostra a lista de arquivos do diretório atual</td>
+					</tr>
+					<tr>
+						<td>cd <em>diretório</em></td> <td>troca de diretório</td>
+					</tr>
+					<tr>
+						<td>file <em>nome</em></td> <td>mostra o tipo do arquivo <em>nome</em></td>
+					</tr>
+					<tr>
+						<td>pwd</td> <td>mostra o diretório de trabalho atual</td>
+					</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Primeiros Comandos</h2>
+					<table>
+						<col style="width:40%">
+					<tr>
+						<th>Comando</th> <th>Descrição</th>
+					</tr>
+
+					<tr>
+						<td>cat <em>arquivo</em></td> <td>Mostra na tela o conteúdo de um arquivo de texto</td>
+					</tr>
+					<tr>
+						<td>exit</td> <td>Sai da sessão</td>
+					</tr>
+					<tr>
+						<td>logout</td> <td>Sai da sessão</td>
+					</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Obtendo Ajuda</h2>
+					<table>
+						<col style="width:40%">
+					<tr>
+						<th>Comando</th> <th>Descrição</th>
+					</tr>
+
+					<tr>
+						<td>man <em>comando</em></td> <td>Mostra manual do comando</td>
+					</tr>
+					<tr>
+						<td>info <em>comando</em></td> <td>Mostra informações do comando</td>
+					</tr>
+					<tr>
+						<td>whatis <em>comando</em></td> <td>Mostra breve informação sobre o comando</td>
+					</tr>
+					<tr>
+						<td><em>comando</em> --help</td> <td>Mostra informações de como usar o </td>
+					</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Links</h2>
+					<ul>
+					    <li><a href="http://www.ibm.com/developerworks/br/linux/library/l-lpic1-v3-103-1/"> Aprenda Linux, 101: A linha de comando do Linux</a></li>
+					    <li><a href="http://www.tldp.org/LDP/intro-linux/intro-linux.pdf"> Introduction to Linux </a></li>
+					</ul>
+				</section>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				slideNumber: true,
+				center: false,
+				//parallaxBackgroundImage:'imgs/parallax.jpg',
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
