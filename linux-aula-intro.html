@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/footer-reveal.min.js"></script>
+
+	<head>
+		<div class="slides">
+			UM ELEMENTO
+
+		</div>
+		<meta charset="utf-8">
+
+		<title>Sistemas Operacionais</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			function init()
+			{
+				var canvas = document.getElementById("canvas");
+				if(canvas.getContext){
+					var ctx = canvas.getContext("2d");
+					// Draw triangle
+					ctx.fillStyle="#A2322E";
+					ctx.beginPath();
+					// Draw a triangle location for each corner from x:y 100,110 -> 200,10 -> 300,110 (it will return to first point)
+					ctx.moveTo(275,110);
+					ctx.lineTo(375,10);
+					ctx.lineTo(475,110);
+					ctx.closePath();
+					ctx.fill();
+				}
+			}
+			onload=init;
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas Operacionais</h1>
+					<h3>Linux: história, descrição, licença GPL e distribuições</h3>
+					<p>
+						<small>Professor: Juliano Fischer Naves / <a href="mailto:juliano.naves@ifro.edu.br">email</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>No princípio</h2>
+					<ul>
+						<li>Cada computador tinha seu próprio S.O.</li>
+						<li class="fragment">Customizado para servir a um propósito específico</li>
+						<li class="fragment">Escrito em assembly</li>
+						<ul>
+							<li  class="fragment">Não portável</li>
+						</ul>
+					</ul>
+					<figure  class="fragment"><img src="imgs/assembly.jpg" alt="Trecho de código em assembly" width=65%></figure>
+					
+				</section>
+
+				<section>
+					<h2>1969 - UNIX</h2>
+					<ul>
+						<li>Novo sistema operacional</li>
+						<li>Ken Thompson e Dennis Ritchie (AT&T Bell Labs)</li>
+						<li>Escrito em C</li>
+						<li>Portável (várias plataformas de hardware)</li>
+					</ul>
+					<figure><img src="imgs/thompson-and-ritchie.jpg" alt="Ken Thompson and Dennis Ritchie" width=35%></figure>
+					
+				</section>
+
+				<section>
+					<h2>Anos 80</h2>
+					<ul>
+						<li>Várias companhias desenvolviam seus próprios sistemas UNIX</li>
+						<li>Desenvolvimento de vários sistemas UNIX comerciais</li>
+						<li>Surgimento dos PCs</li>
+						<li>Alguns sistemas UNIX capazes de rodar em PCs</li>
+						<li>Desempenho não satisfatório</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Anos 80 - GNU</h2>
+					<ul>
+						<li>GNU is not UNIX!</li>
+						<li>Objetivo: sistema operacional livremente acessível para qualquer um</li>
+						<li>Várias ferramentas de linha de comando do Linux hoje são GNU</li>
+					</ul>
+
+					<figure><img src="imgs/stallman-gnu.jpg" alt="GNU and Richard Stallman" width=40%></figure>
+				</section>
+
+				<section>
+					<h2>Anos 80 - FSF</h2>
+					<ul>
+						<li>Free Software Foundation</li>
+						<li>Objetivo: eliminar restrições sob cópia, estudo e modificação de softwares</li>
+						<li>Atualmente dedica-se mais aos aspectos legais</li>
+					</ul>
+
+					<figure><img src="imgs/fsf.jpg" alt="Free Software Foundation" width=60%></figure>
+				</section>
+
+				<section>
+					<h2>1991 - Linus e o Linux</h2>
+					<ul>
+						<li>Objetivo: desenvolver um sistema compatível com UNIX e capaz de rodar nos PCs da época</li>
+					</ul>
+					<figure><img src="imgs/linus.jpg" alt="Linus Torvalds" width=40%></figure>
+				</section>
+
+				<section>
+					<blockquote>
+Olá a todos que estão usando minix -
+
+Eu estou fazendo um sistema operacional livre (é apenas um hobby, não será grande e profissional como o gnu) para os clones AT 386(486). Está sendo desenvolvido desde abril e está quase pronto. Gostaria de receber qualquer feedback sobre o que as pessoas gostam/não gostam no minix, uma vez que o meu SO se parece um pouco com ele (mesmo layout físico de sistema de arquivos (devido a razões práticas) entre outras coisas.
+
+					</blockquote>
+				</section>
+
+				<section class="width:70%;">
+					<blockquote>
+No momento eu o portei para bash(1.08) e gcc(1.40), e as coisas parecem funcionar. Isso implica que irei conseguir algo prático dentro de poucos meses e gostaria de saber quais características a maioria das pessoas gostaria que tivesse. Quaisquer sugestões são bem-vindas, mas não prometo que eu vá implementá-las :-)
+					</blockquote>
+				</section>
+
+				<section>
+					<blockquote>
+PS. Sim — ele não tem nenhum código minix, e possui um fs multitarefa. Ele NÃO é portável (usa troca de contexto 386, etc), e provavelmente nunca será compatível com nada além de discos rígidos AT, uma vez que isso é tudo o que eu tenho :-(.
+—Linus Torvalds
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Afinal, o que é o Linux?</h2>
+					<ul>
+						<li>Um sistema operacional</li>
+						<li>Gerencia todos os recursos relacionados ao hardware</li>
+						<li>Faz a comunicação entre software e hardware</li>
+						<li>Bootloader + kernel + daemons + shell + graphical server + applications = Linux</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Bootloader</h2>
+					<ul>
+						<li>Software que gerencia o processo de inicialização do computador</li>
+					</ul>
+					<figure><img src="imgs/bootloader.png" alt="Processo de inicialização" width=35%></figure>
+				</section>
+
+				<section>
+					<h2>Bootloader</h2>
+					<h4>Bios vs UEFI</h4>
+					<figure><img src="imgs/bios-vs-uefi.jpeg" alt="Comparação BIOS e UEFI" width=70%></figure>
+				</section>
+
+				<section>
+					<h2>Kernel (núcleo)</h2>
+					<ul>
+						<li>Parte que é efetivamente chamada "Linux"</li>
+						<li>Parte de mais baixo nível do S.O.</li>
+						<li>Gerencia CPU, memória e periféricos</li>
+					</ul>
+					<figure><img src="imgs/kernel.png" alt="Linux Kernel" width=40%></figure>
+				</section>
+
+				<section>
+					<h2>Daemons</h2>
+					<ul>
+						<li>Serviços de background que iniciam durante o boot ou após o login</li>
+						<li>sshd: espera por conexões SSH</li>
+						<li>syslogd: gerencia sessões</li>
+						<li>cron: executa tarefas agendadas</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Shell</h2>
+					<ul>
+						<li>Permite controlar o S.O. via comandos em uma interface de texto</li>
+						<li>"Pega" comandos do teclado e passa para o S.O.</li>
+					</ul>
+					<figure><img src="imgs/shell.png" alt="Linux Shell" width=80%></figure>
+				</section>
+
+				<section>
+					<h2>Servidor Gráfico</h2>
+					<ul>
+						<li>Sistema que exibe os gráficos no monitor</li>
+						<li>X, servidor X, sistema de janelas X, X-window, X11</li>
+					</ul>
+					<figure><img src="imgs/xserver.png" alt="X Server" width=25%></figure>
+				</section>
+
+				<section>
+					<h2>Ambientes Desktop</h2>
+					<ul>
+						<li>Provê uma interface gráfica completa</li>
+						<li>Geralmente, cada uma contém aplicações "embutidas"</li>
+					</ul>
+					<figure><img src="imgs/desktop-environments.png" alt="Linux Desktop Environments" width=40%></figure>
+				</section>
+
+				<section>
+					<h2>Aplicativos Linux</h2>
+					<figure><img src="imgs/apps.png" alt="Aplicativos" width=55%></figure>
+				</section>
+
+				<section>
+					<h2>General Public License</h2>
+					<ul>
+						<li>Idealizada por Richard Stallman</li>
+						<li>Projeto GNU e FSF</li>
+						<li>Licença mais utilizada em projetos de software livre</li>
+						<li>Atualmente na versão 3 (GPLv3)</li>
+					</ul>
+					<figure><img src="imgs/gpl.png" alt="General Public License" width=35%></figure>
+				</section>
+
+				<section>
+					<h2>General Public License</h2>
+					<h3>Baseia-se em 4 liberdades:</h3>
+					<div style="text-align:left;">
+					<h4 class="fragment">0. Executar o programa para qualquer propósito</h4>
+					<h4 class="fragment">1. Estudar e adaptar o programa as suas necessidades</h4>
+					<h4 class="fragment">2. Liberdade de redistribuir cópias do programa</h4>
+					<h4 class="fragment">3. Aperfeiçoar o programa e liberar os seus aperfeiçoamentos</h4>
+					</div>
+				</section>
+
+				<section>
+					<h2>Distribuições Linux</h2>
+					<ul>
+						<li class="fragment">Coleção de software baseada no Kernel Linux</li>
+						<li class="fragment">Geralmente contém um sistema de gerenciamento de pacotes, um ambiente desktop, bibliotecas e ferramentas GNU, etc...</li>
+						<li class="fragment">Disponível para uma ampla variedade de sistemas</li>
+						<ul>
+							<li class="fragment">Roteadores: OpenWrt, DD-WRT</li>
+							<li class="fragment">Supercomputadores: Rocks Cluster Distribution</li>
+							<li class="fragment">PCs: Mint, Ubuntu, Fedora, Arch Linux...</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+				<section>
+					<h2> Prós e Contras </h2>
+					<ul>
+						<li><h3 style="color: blue">Prós</h3></li>
+						<ul>	
+							<li class="fragment">Linux é Livre!</li>
+							<li class="fragment">Linux é portável para qualquer plataforma de hardware</li>
+							<li class="fragment">Linux foi feito para ficar rodando</li>
+							<li class="fragment">Linux é seguro e versátil</li>
+							<li class="fragment">Linux é escalável: do palmtop ao cluster</li>
+							<li class="fragment">Linux possui tempo de depuração muito curto</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<h2> Prós e Contras </h2>
+					<ul>
+						<li><h3 style="color: red">Contras</h3></li>
+						<ul>	
+							<li class="fragment">Muitas distribuições <a href="https://distrowatch.com/search.php?ostype=Linux&category=All&origin=All&basedon=All&notbasedon=None&desktop=All&architecture=All&package=All&rolling=All&isosize=All&netinstall=All&status=Active">diferentes</a></li>
+							<ul>
+								<li class="fragment">Qual escolher?</li>
+							</ul>
+							<li class="fragment">Linux é confuso para iniciantes</li>
+							<li class="fragment">Um software open source é confiável?</li>
+							<ul>
+								<li class="fragment">Heartbleed bug: OpenSSL</li>
+								<ul>
+									<li class="fragment">Revelado em 1 de abril de 2014</li>
+									<li class="fragment">Arrumado em 7 de abril de 2014</li>
+								</ul>
+							</ul>
+						</ul>
+					</ul>
+				</section>
+				
+				</section>
+
+
+				<section>
+					<h2>Links</h2>
+					<ul>
+					    <li><a href="https://www.linux.com/what-is-linux">What is Linux?</a></li>
+					    <li><a href="http://www.catb.org/esr/writings/taoup/html/ch02s01.html">Origins and History of Unix</a></li>
+					    <li><a href="http://www.ebookbou.edu.bd/Books/Text/SST/DCSA/dcsa_2302/Unit-10.pdf">An introduction to Linux OS</a></li>
+					    <li><a href="http://linux-training.be/funhtml/ch01.html">Linux History</a></li>
+					    <li><a href="http://www.tldp.org/LDP/intro-linux/intro-linux.pdf">Introduction to Linux</a></li>
+					</ul>
+				</section>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				slideNumber: true,
+				center: false,
+				//parallaxBackgroundImage:'imgs/parallax.jpg',
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
