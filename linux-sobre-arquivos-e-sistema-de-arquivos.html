@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/footer-reveal.min.js"></script>
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Sistemas Operacionais</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			function init()
+			{
+				var canvas = document.getElementById("canvas");
+				if(canvas.getContext){
+					var ctx = canvas.getContext("2d");
+					// Draw triangle
+					ctx.fillStyle="#A2322E";
+					ctx.beginPath();
+					// Draw a triangle location for each corner from x:y 100,110 -> 200,10 -> 300,110 (it will return to first point)
+					ctx.moveTo(275,110);
+					ctx.lineTo(375,10);
+					ctx.lineTo(475,110);
+					ctx.closePath();
+					ctx.fill();
+				}
+			}
+			onload=init;
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sistemas Operacionais</h1>
+					<h3>Linux: arquivos, organização do sistema de arquivos e manipulação de arquivos</h3>
+					<p>
+						<small>Professor: Juliano Fischer Naves / <a href="mailto:juliano.naves@ifro.edu.br">email</a></small>
+					</p>
+				</section>
+
+				<section>
+				<section>
+					<h2>No Linux, tudo é um arquivo</h2>
+					<h4 style="color:red">ls -l</h4>
+					<table>
+						<col style="width:35%">	
+					<tr>
+						<th>Tipo</th> <th>Significado</th> <th>Símbolo</th>
+					</tr>
+
+					<tr>
+						<td>Arquivo comum</td> <td>arquivo comum</td><td>-</td>
+					</tr>
+					<tr>
+						<td>Diretório</td> <td>diretório</td><td>d</td>
+					</tr>
+					<tr>
+						<td>Links</td> <td>um modo de fazer um arquivo ou diretório visível em múltiplas partes do sistema</td><td>l</td>
+					</tr>
+					</table>
+				</section>
+				<section>
+					<h2>No Linux, tudo é um arquivo</h2>
+					<h4 style="color:red">ls -l</h4>
+					<table>
+						<col style="width:35%">	
+					<tr>
+						<th>Tipo</th> <th>Significado</th> <th>Símbolo</th>
+					</tr>
+					<tr>
+						<td>sockets</td> <td>tipo especial para comunicação entre processos na rede</td><td>s</td>
+					</tr>
+					<tr>
+						<td>named pipes</td> <td>similar aos sockets, para comunicação entre processos</td><td>p</td>
+					</tr>
+					</table>
+				</section>
+				</section>
+
+				<section>
+					<h2>No Linux, tudo é um arquivo</h2>
+					<h4 style="color:red">ls -l</h4>
+					<figure><img src="imgs/ls-l.png" alt="ls -l" width=100%></figure>					
+				</section>
+
+				<section>
+					<h3>Organização da Árvore de Diretórios</h3>
+					<ul>
+						<li>Uma única hierarquia de diretórios</li>
+						<ul>
+							<li class="fragment">Windows: uma hierarquia para cada partição</li>
+						</ul>
+						<li class="fragment"><em>diretório raíz</em> (root directory): diretório mais alto na árvore de diretórios</li>
+					</ul>
+						<figure><img src="imgs/directory-tree.gif" alt="ls -l" width=60%></figure>
+				</section>
+				
+				<section>
+				<section>
+					<h3>Organização da Árvore de Diretórios</h3>
+					<ul>
+						<li class="fragment"><em style="color:blue">/</em> : diretório raíz, normalmente não possui arquivos regulares (somente diretórios)</li>
+						<li class="fragment"><em style="color:blue">/bin</em> : comandos necessários durante o boot e que podem ser utilizados por usuários normais (após o boot)</li>
+						<li class="fragment"><em style="color:blue">/sbin</em> : similar a /bin, mas não destinado a usuários normais</li>
+						<li class="fragment"><em style="color:blue">/etc</em> : arquivos de configuração</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Organização da Árvore de Diretórios</h3>
+					<ul>
+						<li class="fragment"><em style="color:blue">/root</em> : diretório home para usuário root</li>
+						<li class="fragment"><em style="color:blue">/lib</em> : bibliotecas compartilhadas, necessárias para os programas no sistema</li>
+						<li class="fragment"><em style="color:blue">/lib/modules</em> : módulos do kernel - especialmente aqueles necessários para iniciar o sistema em recuperação de falhas</li>
+						<li class="fragment"><em style="color:blue">/dev</em> : arquivos de dispostivos. Arquivos especiais que ajudam a interface do usuário com os vários dispositivos do sistema</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Organização da Árvore de Diretórios</h3>
+					<ul>
+						<li class="fragment"><em style="color:blue">/tmp</em> : arquivos temporários. Normalmente apagado na inicialização.</li>
+						<li class="fragment"><em style="color:blue">/boot</em> : arquivos usados para a inicialização</li>
+						<li class="fragment"><em style="color:blue">/mnt</em> : ponto de montagem temporários para ser utilizado pelo administrador do sistema</li>
+						<li class="fragment"><em style="color:blue">/var</em> : dados variados, como por exemplo, logs</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Organização da Árvore de Diretórios</h3>
+					<ul>
+						<li class="fragment"><em style="color:blue">/home</em> : raíz dos diretórios home</li>
+						<ul>
+							<li class="fragment">Linux é um sistema multiusuário</li>
+							<li class="fragment">Cada usuário tem um diretório atribuído a ele</li>
+							<li class="fragment">Acessíve somente por ele e pelo administrado</li>
+							<li class="fragment" style="color:red">/home/usuário/</li>
+						</ul>
+					</ul>
+				</section>
+
+				</section>
+
+				<section>
+						<figure><img src="imgs/directory-tree.gif" alt="ls -l" width=100%></figure>				
+				</section>
+
+				<section>
+					<h3>Navegando pelos Diretórios</h3>
+					<h4>Comando <em style="color:blue">cd</em> : troca o diretório de trabalho</h4>
+					<ul>
+						<li class="fragment"><em style="color:blue">cd /home</em>: troca o diretório de trabalho para /home</li>
+						<li class="fragment"><em style="color:blue">cd /</em>: troca para o diretório raíz</li>
+					</ul>
+					</p>
+					<h4 class="fragment">Alguns "atalhos"</h4>
+						<ul>
+							<li class="fragment"><em style="color:blue">..</em> - diretório anterior (acima na árvore)</li>
+							<ul><li class="fragment" style="color:red">diretório pai</li></ul>
+							<li class="fragment"><em style="color:blue">.</em> - diretório atual</li>
+							<li class="fragment"><em style="color:blue">~</em> - home do usuário</li>
+						</ul>
+				</section>
+
+				<section>
+					<h3>Navegando pelos Diretórios</h3>
+					<!--<h4>Comando <em style="color:blue">cd</em> : troca o diretório de trabalho</h4>-->
+					<ul>
+						<li class="fragment"><em style="color:blue">cd ~</em>: troca para o diretório home do usuário (/home/usuario/</li>
+						<li class="fragment"><em style="color:blue">cd ..</em>: sobe um nível na árvore de diretórios</li>
+						<li class="fragment"><em style="color:blue">cd .</em>: permanece no mesmo diretório</li>
+						<li class="fragment"><em style="color:blue">cd ../../</em>: sobe 2 níveis na árvore de diretório</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3> Caminho Absoluto </h3>
+					<ul>
+						<li class="fragment">Caminho para um arquivo a partir da raíz</li>
+						<li class="fragment">É iniciado com uma barra</li>
+						<li class="fragment">Independente do diretório de trabalho</li>
+						<li class="fragment">/home/juliano/Documentos/arquivo.txt</li>
+						<li class="fragment" style="color:red">Só um arquivo em todo o sistema! Não existem caminhos absolutos iguais para 2 arquivos.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3> Caminho Relativo </h3>
+					<ul>
+						<li class="fragment">Caminho para um arquivo a partir do diretório de trabalho</li>
+						<li class="fragment">Pode identificar mais de um arquivo</li>
+						<ul><li class="fragment">..</li>
+						    <li class="fragment">.</li></ul>
+					</ul>
+				</section>
+
+				<section>
+					<figure><img src="imgs/relative-path.jpg" alt="Caminho relativo" width=60%></figure>
+
+					<section>
+					    <pre><code data-trim data-noescape class="bash">
+anakin@universe:/home/anakin$ cat Docs/força.txt
+</p>
+luke@universe:/home/luke$ cat Docs/força.txt
+					    </code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3> Manipulando Arquivos </h3>
+					<ul>
+						<li class="fragment"><em style="color:blue">mkdir</em> nome_do_dir: cria um diretório</li>
+						<li class="fragment"><em style="color:blue">mv</em> arq local: move arquivos</li>
+						<li class="fragment"><em style="color:blue">cp</em> [-R] fromfile tofile: copia arquivos</li>
+						<li class="fragment"><em style="color:blue">rm</em> arquivo: remove um arquivo</li>
+						<li class="fragment"><em style="color:blue">rmdir</em> diretório: remove um diretório vazio</li>
+						<ul><li class="fragment">Use <em style="color:blue">ls -a</em> para verificar se um diretório está vazio</li></ul>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Links</h2>
+					<ul>
+					    <li><a href="http://www.ibm.com/developerworks/br/linux/library/l-lpic1-v3-103-1/"> Aprenda Linux, 101: A linha de comando do Linux</a></li>
+					    <li><a href="http://www.tldp.org/LDP/intro-linux/intro-linux.pdf"> Introduction to Linux </a></li>
+					</ul>
+				</section>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				slideNumber: true,
+				center: false,
+				//parallaxBackgroundImage:'imgs/parallax.jpg',
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
