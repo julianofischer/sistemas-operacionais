@@ -128,37 +128,37 @@
 				<section>
 					<h3>Organização da Árvore de Diretórios</h3>
 					<ul>
-						<li class="fragment"><em style="color:blue">/</em> : diretório raíz, normalmente não possui arquivos regulares (somente diretórios)</li>
-						<li class="fragment"><em style="color:blue">/bin</em> : comandos necessários durante o boot e que podem ser utilizados por usuários normais (após o boot)</li>
-						<li class="fragment"><em style="color:blue">/sbin</em> : similar a /bin, mas não destinado a usuários normais</li>
-						<li class="fragment"><em style="color:blue">/etc</em> : arquivos de configuração</li>
+						<li class="fragment"><em style="color:#87CEFA">/</em> : diretório raíz, normalmente não possui arquivos regulares (somente diretórios)</li>
+						<li class="fragment"><em style="color:#87CEFA">/bin</em> : comandos necessários durante o boot e que podem ser utilizados por usuários normais (após o boot)</li>
+						<li class="fragment"><em style="color:#87CEFA">/sbin</em> : similar a /bin, mas não destinado a usuários normais</li>
+						<li class="fragment"><em style="color:#87CEFA">/etc</em> : arquivos de configuração</li>
 					</ul>
 				</section>
 
 				<section>
 					<h3>Organização da Árvore de Diretórios</h3>
 					<ul>
-						<li class="fragment"><em style="color:blue">/root</em> : diretório home para usuário root</li>
-						<li class="fragment"><em style="color:blue">/lib</em> : bibliotecas compartilhadas, necessárias para os programas no sistema</li>
-						<li class="fragment"><em style="color:blue">/lib/modules</em> : módulos do kernel - especialmente aqueles necessários para iniciar o sistema em recuperação de falhas</li>
-						<li class="fragment"><em style="color:blue">/dev</em> : arquivos de dispostivos. Arquivos especiais que ajudam a interface do usuário com os vários dispositivos do sistema</li>
+						<li class="fragment"><em style="color:#87CEFA">/root</em> : diretório home para usuário root</li>
+						<li class="fragment"><em style="color:#87CEFA">/lib</em> : bibliotecas compartilhadas, necessárias para os programas no sistema</li>
+						<li class="fragment"><em style="color:#87CEFA">/lib/modules</em> : módulos do kernel - especialmente aqueles necessários para iniciar o sistema em recuperação de falhas</li>
+						<li class="fragment"><em style="color:#87CEFA">/dev</em> : arquivos de dispostivos. Arquivos especiais que ajudam a interface do usuário com os vários dispositivos do sistema</li>
 					</ul>
 				</section>
 
 				<section>
 					<h3>Organização da Árvore de Diretórios</h3>
 					<ul>
-						<li class="fragment"><em style="color:blue">/tmp</em> : arquivos temporários. Normalmente apagado na inicialização.</li>
-						<li class="fragment"><em style="color:blue">/boot</em> : arquivos usados para a inicialização</li>
-						<li class="fragment"><em style="color:blue">/mnt</em> : ponto de montagem temporários para ser utilizado pelo administrador do sistema</li>
-						<li class="fragment"><em style="color:blue">/var</em> : dados variados, como por exemplo, logs</li>
+						<li class="fragment"><em style="color:#87CEFA">/tmp</em> : arquivos temporários. Normalmente apagado na inicialização.</li>
+						<li class="fragment"><em style="color:#87CEFA">/boot</em> : arquivos usados para a inicialização</li>
+						<li class="fragment"><em style="color:#87CEFA">/mnt</em> : ponto de montagem temporários para ser utilizado pelo administrador do sistema</li>
+						<li class="fragment"><em style="color:#87CEFA">/var</em> : dados variados, como por exemplo, logs</li>
 					</ul>
 				</section>
 
 				<section>
 					<h3>Organização da Árvore de Diretórios</h3>
 					<ul>
-						<li class="fragment"><em style="color:blue">/home</em> : raíz dos diretórios home</li>
+						<li class="fragment"><em style="color:#87CEFA">/home</em> : raíz dos diretórios home</li>
 						<ul>
 							<li class="fragment">Linux é um sistema multiusuário</li>
 							<li class="fragment">Cada usuário tem um diretório atribuído a ele</li>
@@ -176,29 +176,29 @@
 
 				<section>
 					<h3>Navegando pelos Diretórios</h3>
-					<h4>Comando <em style="color:blue">cd</em> : troca o diretório de trabalho</h4>
+					<h4>Comando <em style="color:#87CEFA">cd</em> : troca o diretório de trabalho</h4>
 					<ul>
-						<li class="fragment"><em style="color:blue">cd /home</em>: troca o diretório de trabalho para /home</li>
-						<li class="fragment"><em style="color:blue">cd /</em>: troca para o diretório raíz</li>
+						<li class="fragment"><em style="color:#87CEFA">cd /home</em>: troca o diretório de trabalho para /home</li>
+						<li class="fragment"><em style="color:#87CEFA">cd /</em>: troca para o diretório raíz</li>
 					</ul>
 					</p>
 					<h4 class="fragment">Alguns "atalhos"</h4>
 						<ul>
-							<li class="fragment"><em style="color:blue">..</em> - diretório anterior (acima na árvore)</li>
+							<li class="fragment"><em style="color:#87CEFA">..</em> - diretório anterior (acima na árvore)</li>
 							<ul><li class="fragment" style="color:red">diretório pai</li></ul>
-							<li class="fragment"><em style="color:blue">.</em> - diretório atual</li>
-							<li class="fragment"><em style="color:blue">~</em> - home do usuário</li>
+							<li class="fragment"><em style="color:#87CEFA">.</em> - diretório atual</li>
+							<li class="fragment"><em style="color:#87CEFA">~</em> - home do usuário</li>
 						</ul>
 				</section>
 
 				<section>
 					<h3>Navegando pelos Diretórios</h3>
-					<!--<h4>Comando <em style="color:blue">cd</em> : troca o diretório de trabalho</h4>-->
+					<!--<h4>Comando <em style="color:#87CEFA">cd</em> : troca o diretório de trabalho</h4>-->
 					<ul>
-						<li class="fragment"><em style="color:blue">cd ~</em>: troca para o diretório home do usuário (/home/usuario/</li>
-						<li class="fragment"><em style="color:blue">cd ..</em>: sobe um nível na árvore de diretórios</li>
-						<li class="fragment"><em style="color:blue">cd .</em>: permanece no mesmo diretório</li>
-						<li class="fragment"><em style="color:blue">cd ../../</em>: sobe 2 níveis na árvore de diretório</li>
+						<li class="fragment"><em style="color:#87CEFA">cd ~</em>: troca para o diretório home do usuário (/home/usuario/</li>
+						<li class="fragment"><em style="color:#87CEFA">cd ..</em>: sobe um nível na árvore de diretórios</li>
+						<li class="fragment"><em style="color:#87CEFA">cd .</em>: permanece no mesmo diretório</li>
+						<li class="fragment"><em style="color:#87CEFA">cd ../../</em>: sobe 2 níveis na árvore de diretório</li>
 					</ul>
 				</section>
 
@@ -238,12 +238,12 @@ luke@universe:/home/luke$ cat Docs/força.txt
 				<section>
 					<h3> Manipulando Arquivos </h3>
 					<ul>
-						<li class="fragment"><em style="color:blue">mkdir</em> nome_do_dir: cria um diretório</li>
-						<li class="fragment"><em style="color:blue">mv</em> arq local: move arquivos</li>
-						<li class="fragment"><em style="color:blue">cp</em> [-R] fromfile tofile: copia arquivos</li>
-						<li class="fragment"><em style="color:blue">rm</em> arquivo: remove um arquivo</li>
-						<li class="fragment"><em style="color:blue">rmdir</em> diretório: remove um diretório vazio</li>
-						<ul><li class="fragment">Use <em style="color:blue">ls -a</em> para verificar se um diretório está vazio</li></ul>
+						<li class="fragment"><em style="color:#87CEFA">mkdir</em> nome_do_dir: cria um diretório</li>
+						<li class="fragment"><em style="color:#87CEFA">mv</em> arq local: move arquivos</li>
+						<li class="fragment"><em style="color:#87CEFA">cp</em> [-R] fromfile tofile: copia arquivos</li>
+						<li class="fragment"><em style="color:#87CEFA">rm</em> arquivo: remove um arquivo</li>
+						<li class="fragment"><em style="color:#87CEFA">rmdir</em> diretório: remove um diretório vazio</li>
+						<ul><li class="fragment">Use <em style="color:#87CEFA">ls -a</em> para verificar se um diretório está vazio</li></ul>
 					</ul>
 				</section>
 
